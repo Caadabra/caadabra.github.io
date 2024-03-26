@@ -1,8 +1,9 @@
-/* CSS styles */
 body {
   margin: 0;
   padding: 0;
-  background-color: #00172b;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: white;
+  height: 4000px;
 }
 html {
   margin: 0;
@@ -19,7 +20,7 @@ header {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: 100;
+  z-index: 999;
   height: 80px; /* Set the height to your desired fixed value */
 }
 
@@ -112,41 +113,23 @@ header {
   bottom: 40px;
 }
 
-.error-page {
+.triangle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 60%; 
+  height: 100vh;
+  background-color: #00172b; 
+  clip-path: polygon(0 0, 45% 0, 65% 100%, 0% 100%, 0% 100%); /* Define the five-sided polygon */
+  z-index: 99; 
+}
+
+h1 {
   position: relative;
-  color: white;
-  align-content: center;
-  text-align: center;
-  margin-top: 200px; /* Adjust as needed */
-  font-family: 'Trebuchet MS', sans-serif;
-}
-
-.error-page h1 {
-  mix-blend-mode: difference;
-  font-size: 112px;
-  margin-bottom: 10px;
-}
-
-.error-page h3 {
-  mix-blend-mode: difference;
-  font-size: 24px;
-  margin-bottom: 20px;
-}
-
-.error-page p {
-  font-size: 16px;
-  mix-blend-mode: difference;
-  margin-bottom: 30px;
-}
-
-.error-page::before {
-  content: '';
-  position: absolute;
-  top: -92%; /* Adjust as needed */
-  right: 0;
-  width: 0;
-  height: 0;
-  border-top: 0vh solid transparent;
-  border-bottom: 100vh solid transparent;
-  border-right: 120vw solid white;
+  font-size: 3.8vw;
+  max-width: 30%;
+  min-height: fit-content;
+  z-index: 100;
+  top: 25vh;
+  padding: 20px;
 }
