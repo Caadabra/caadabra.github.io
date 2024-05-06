@@ -1,0 +1,248 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Trebuchet MS', sans-serif;
+    color: white;
+    background-color: #00172b;
+    overflow-y: scroll;
+    overflow-x: hidden;
+  }
+  html {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Only Chrome and Safari */
+  body::-webkit-scrollbar {
+    width: 0px;
+    background: transparent; 
+  }
+  
+  header {
+    background-color: #00172b;
+    color: white;
+    font-family: 'Trebuchet MS', sans-serif;
+    text-align: center;
+    padding: 3px 0; 
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 999;
+    height: 80px;
+  }
+  
+  .logo {
+    height: auto;
+    position: relative;
+    top: 20px;
+    width: 220px;
+  }
+  
+  .nav {
+    display: flex;
+    justify-content: center; 
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav-item {
+    width: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
+  
+  .nav a {
+    color: white;
+    font-size: 14.7px;
+    position: relative;
+    padding-left: 50px;
+    text-decoration: none;
+    left: -25px;
+    top: -20px;
+  
+  }
+  
+  .nav-square {
+    width: 90px;
+    height: 90px;
+    background-color: #00172b;
+    position: absolute;
+    top: -50px;
+    margin: 0 auto;
+    z-index: -1; 
+    transition: background-color 0.5s; 
+  }
+  
+  
+  .nav-item:hover .nav-square {
+    background-color: #613bc1;
+  }
+  
+  .account-circle {
+    float: none;
+    width: 35px;
+    height: 35px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 0;
+  }
+  
+  .shop-link {
+    float: none;
+    color: white;
+    text-decoration: none;
+    margin-left: 10px;
+    margin-right: 10px;
+    position: absolute;
+    right: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .progressBar {
+    background-color: #613bc1;
+    width: 100%;
+    position: fixed;
+    top: 86px;
+    z-index: 999;
+  }
+  
+  #myBar {
+    height: 4px;
+    background-color: #613bc1;
+    z-index: 99999999;
+  }
+  
+  .right-menus {
+    position: relative;
+    bottom: 40px;
+  }
+  
+  
+  .wind-farms {
+    position: relative;
+    padding: 20px;
+    z-index: 120;
+    max-width: 35%;
+  }
+  
+  .wind-farms h1 {
+    position: relative;
+    top: 100px;
+    text-decoration: underline;
+    text-decoration-color: #613bc1;
+  }
+  
+  .wind-farms p {
+    position: absolute;
+    top: 25vh;
+  }
+  
+  .wind-farms-image {
+    border: 5px solid #ffffff;
+    position: relative;
+    top: 80px;
+    left: 40vw;
+    bottom: 15vh;
+    max-width: 50vw;
+    height: auto;
+  }
+  
+  .apply-button {
+    position: relative;
+    display: inline-block;
+    background-color: #613bc1;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    left: 58vw;
+    margin-top: 20vh;
+    transition: background-color 0.3s;
+  }
+  
+  .apply-button:hover {
+    background-color: #4a2b82;
+  }
+  
+  
+  
+  @media only screen and (max-width: 768px) {
+    body {
+      height: 4000px;
+    }
+  
+    .logo {
+      width: 150px;
+      clip-path: inset(0 100px 0 0);
+    }
+  
+    .nav-item {
+      left: 25px;
+      top: 5px;
+      width: auto;
+    }
+  
+    .nav-item:hover .nav-square {
+      background-color: #00172b;
+    }
+  
+    .nav a {
+      padding-left: 20px;
+      font-size: 14px;
+      left: -10px;
+      top: -15px;
+    }
+  
+    .nav-square {
+      width: 70px;
+      height: 70px;
+      top: -35px;
+    }
+  
+    .account-circle {
+      opacity: 0%;
+    }
+  
+    .shop-link {
+      opacity: 0%;
+    }
+  
+    .wind-farms {
+        position: relative;
+        margin-top: 40px;
+        max-width: 100%;
+    }
+  
+    .wind-farms-image {
+        border: 0px;
+        position: relative;
+        max-width: 100vw;
+        left: -20px;
+        top: -50px;
+    }
+  
+    .wind-farms h1 {
+        position: relative;
+        top: 70vw;
+        z-index: 999;
+    }
+      
+    .wind-farms p {
+        font-size: 15px;
+        top: 94vw;
+    }
+  
+    .apply-button {
+        position: absolute;
+        top: 25vw;
+        left: 30vw;
+    }
+  }  

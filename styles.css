@@ -1,0 +1,621 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Trebuchet MS', sans-serif;
+  color: white;
+  background-color: rgb(11, 11, 11);
+  height: 4000px;
+  overflow-y: scroll; 
+  overflow-x: hidden;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+/* This is only for Chrome and Safari. 
+It removes the white scrollbar on the side which I 
+found to be invasive and visually distracting */
+
+body::-webkit-scrollbar {
+  width: 0px;
+  background: transparent; 
+}
+
+/* Below are styles for all my header elements such as my nav bar and stuff */
+
+header {
+  background-color: #00172b;
+  color: white;
+  font-family: 'Trebuchet MS', sans-serif;
+  text-align: center;
+  padding: 3px 0; 
+  margin: 0;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  height: 80px;
+}
+
+.logo {
+  height: auto;
+  position: relative;
+  top: 20px;
+  width: 220px;
+}
+
+.nav {
+  display: flex;
+  justify-content: center; 
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  width: 90px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.nav a {
+  color: white;
+  font-size: 14.7px;
+  position: relative;
+  padding-left: 50px;
+  text-decoration: none;
+  left: -25px;
+  top: -20px;
+
+}
+
+.nav-square {
+  width: 90px;
+  height: 90px;
+  background-color: #00172b;
+  position: absolute;
+  top: -50px;
+  margin: 0 auto;
+  z-index: -1; 
+  transition: background-color 0.5s; 
+}
+
+/* Hover Effect */
+.nav-item:hover .nav-square {
+  background-color: #613bc1;
+}
+
+.account-circle {
+  float: none;
+  width: 35px;
+  height: 35px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: 0;
+}
+
+.shop-link {
+  float: none;
+  color: white;
+  text-decoration: none;
+  margin-left: 10px;
+  margin-right: 10px;
+  position: absolute;
+  right: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+/* The progressbar is not currently working as it requires some back end proccesses to detect page loading progress (or I suck at javascript)*/
+.progressBar {
+  background-color: #613bc1;
+  width: 100%;
+  position: fixed;
+  top: 86px;
+  z-index: 999;
+}
+
+#myBar {
+  height: 4px;
+  background-color: #613bc1;
+  z-index: 99999999;
+}
+
+.right-menus {
+  position: relative;
+  bottom: 40px;
+}
+
+/*This is the triangle that is being animated. Its actually not a triangle
+but a pentagon. I made it so javascript controls the position of the points to give it a cool effect*/
+
+.triangle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; 
+  height: 100vh;
+  background-color: #00172b; 
+  clip-path: polygon(0 0, 35% 0, 65% 100%, 0% 100%, 0% 100%);
+  z-index: 100; 
+}
+
+/* This is the text on the start of the page */
+
+.titlepage-text {
+  position: relative;
+  z-index: 111;
+  padding: 20px;
+}
+
+.titlepage-text h1 {
+  position: relative;
+  font-size: 65px;
+  max-width: 40%;
+  z-index: 111;
+  top: 20vh;
+  padding: 20px;
+}
+
+.titlepage-text p {
+  position: relative;
+  font-size: 15px;
+  top: 15vh;
+  padding: 20px;
+  max-width: 30%;
+}
+
+/* Simple Video Player Element. Nothing Crazy */
+
+.video-player {
+  z-index: 99;
+  position: absolute;
+  width: 100vw;
+  scale: 85%;
+  height: auto;
+  left: 20vw;
+  top: -312px;
+}
+
+.solar-image {
+  z-index: 99;
+  top: 120px;
+  position: relative;
+  width: 100vw;
+  height: auto;
+  scale: 50%;
+}
+
+/* Below are styles for the next big section when the user scrolls down. */
+
+.eff-container {
+  position: relative;
+  bottom: 400px
+}
+
+.eff-design {
+  position: relative;
+  z-index: 299;
+  padding: 20px;
+  font-size: 25px;
+  max-width: 33%;
+  bottom: 700px;
+  margin-bottom: 100px;
+}
+
+.eff-design h2 {
+  text-decoration: underline;
+  text-decoration-color: #613bc1;
+}
+
+.eff-design p {
+  font-size: 15px;
+  font-weight: lighter;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.3;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* I use this view pricing button a few more times throughout this page */
+
+.view-pricing-btn {
+  position: relative;
+  background-color: #613bc1;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.view-pricing-btn:hover {
+  background-color: #4c2984; 
+}
+
+.eff-design .view-pricing-btn {
+  position: relative;
+  left: 25%;
+}
+
+/*Section to check if the user has scrolled to see the next element and the element is on the page. (Also animation properties for the fade in) */
+
+.scroll-section {
+  position: absolute;
+  width: 100%;
+  background-color: #00172b00;
+  z-index: 130;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.scroll-section.visible {
+  opacity: 1;
+}
+
+/* The speed dial looking elements.  */
+.circle-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 100%;
+}
+
+.circle {
+  width: 230px;
+  height: 230px;
+  border: 4px solid #613bc1;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: white;
+  position: relative;
+}
+
+.circle .number {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  font-weight: normal;
+}
+
+.circle .circle-text {
+  position: absolute;
+  font-size: 15px;
+  top: 150px;
+}
+
+.circle-paragraph {
+  font-size: 14px;
+  position: absolute;
+  top: 300px;
+  margin-top: 10px;
+}
+
+/*Wind farm section. Probably the most simple one in this page.*/
+
+.wind-farms {
+  position: relative;
+  padding: 20px;
+  top: 0px;
+  z-index: 120;
+  max-width: 35%;
+}
+
+.wind-farms h1 {
+  text-decoration: underline;
+  text-decoration-color: #613bc1;
+}
+
+.wind-farms p {
+  position: absolute;
+  top: 20vh;
+}
+
+.wind-farms-image {
+  border: 5px solid #ffffff;
+  position: relative;
+  left: 40vw;
+  bottom: 15vh;
+  max-width: 50vw;
+  height: auto;
+}
+
+/* Boxes for the pricing. This was hard to get them all aligned and centered. As well as the images appropriatly sized.*/
+
+.box-container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 0 auto;
+  top: 250px;
+  padding: 20px;
+  z-index: 200;
+}
+
+.box {
+  position: relative;
+  width: calc(25%);
+  border: 4px solid #613bc1;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+
+.box img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.box h2 {
+  position: relative;
+  padding-left: 10px;
+}
+.box p {
+  color: white;
+  font-size: 16px;
+  padding: 10px;
+  font-size: 14px;
+}
+
+.box .view-pricing-btn {
+  align-self: center; 
+  margin-bottom: 20px;
+}
+
+
+/*This is the mobile support section. I added this at the bottom 
+so I could tweak the mobile stuff altogether without worrying 
+about it affecting anything else. It checks if the screen width is less than 768px
+and if it is it changes all the styles. This was a massive headache to do ngl.*/
+
+@media only screen and (max-width: 768px) {
+  body {
+    height: 4000px;
+  }
+
+  .logo {
+    width: 150px;
+    clip-path: inset(0 100px 0 0);
+  }
+
+  .nav-item {
+    left: 25px;
+    top: 5px;
+    width: auto;
+  }
+
+  .nav-item:hover .nav-square {
+    background-color: #00172b;
+  }
+
+  .nav a {
+    padding-left: 20px;
+    font-size: 14px;
+    left: -10px;
+    top: -15px;
+  }
+
+  .nav-square {
+    width: 70px;
+    height: 70px;
+    top: -35px;
+  }
+
+  .account-circle {
+    opacity: 0%;
+  }
+
+  .shop-link {
+    opacity: 0%;
+  }
+
+  .triangle {
+    opacity: 0%;
+  }
+
+  .titlepage-text {
+    position: relative;
+    color: white;
+    padding: 5px;
+  }
+
+  .titlepage-text h1 {
+    position: relative;
+    top: 50px;
+    font-size: 50px;
+    max-width: 20%;
+  }
+
+  .titlepage-text p {
+    font-size: 12px;
+    top: 1vh;
+    max-width: 60%;
+  }
+
+  .video-player {
+    left: -50vw;
+    top: -450px;
+    height: 100vh;
+  }
+
+  .solar-image {
+    position: absolute;
+    scale: 30%;
+    right: 300px;
+  }
+
+  .eff-design {
+    position: absolute;
+    font-size: 20px;
+    max-width: 100%;
+    top: 1100px;
+  }
+
+  .eff-design p {
+    font-size: 12px;
+    top: 30px;
+  }
+
+  .scroll-section {
+    position: relative;
+    width: 100%;
+    top: 1700px;
+    background-color: rgb(11, 11, 11);
+    z-index: 130;
+    opacity: 1;
+  }
+
+  .circle-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .circle {
+    width: 250px;
+    height: 250px;
+    border: 4px solid #613bc1;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    color: white;
+    margin-bottom: 320px;
+    margin-top: 20px;
+  }
+  
+  
+
+  .circle .number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 55px;
+    font-weight: normal;
+  }
+  
+  .circle .circle-text {
+    position: absolute;
+    font-size: 15px;
+    top: 150px;
+  }
+  
+  .circle-paragraph {
+    font-size: 14px;
+    position: absolute;
+    top: 300px;
+    margin-top: 10px;
+  }
+
+  .wind-farms {
+    position: relative;
+    top: 1600px;
+    z-index: 220;
+    max-width: 100%;
+    padding: 20px;
+  }
+  
+  .wind-farms h1 {
+    position: relative;
+    top: -60vh;
+    z-index: 99;
+  }
+
+  .wind-farms p {
+    position: relative;
+    top: -60vh;
+  }
+  
+  .wind-farms-image {
+    position: relative;
+    left: -40px;
+    z-index: -120;
+    bottom: 60vh;
+    max-width: 130vw;
+    height: auto; 
+  }
+
+  .box-container {
+    position: relative;
+    margin: 0 auto;
+    top: 1250px;
+    padding: 20px;
+    z-index: 200;
+    display: block;
+  }
+
+  .box {
+      position: relative;
+      width: 100%; 
+      border: 4px solid #613bc1;
+      background-color: transparent;
+      margin-bottom: 20px;
+  }
+
+  .box img {
+      max-width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+  }
+
+  .box h2 {
+      position: relative;
+      padding-left: 10px;
+  }
+
+  .box p {
+      color: white;
+      font-size: 16px;
+      padding: 10px;
+      font-size: 14px;
+  }
+
+  .box .view-pricing-btn {
+      align-self: center;
+      margin-bottom: 20px;
+  }
+}
+
+/*
+Thanks for looking at my website :)
+
+░░░░░░░░░░░░░░░░░░░░░░█████████
+░░███████░░░░░░░░░░███▒▒▒▒▒▒▒▒███
+░░█▒▒▒▒▒▒█░░░░░░░███▒▒▒▒▒▒▒▒▒▒▒▒▒███
+░░░█▒▒▒▒▒▒█░░░░██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
+░░░░█▒▒▒▒▒█░░░██▒▒▒▒▒██▒▒▒▒▒▒██▒▒▒▒▒███
+░░░░░█▒▒▒█░░░█▒▒▒▒▒▒████▒▒▒▒████▒▒▒▒▒▒██
+░░░█████████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
+░░░█▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒██
+░██▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒██▒▒▒▒▒▒▒▒▒▒██▒▒▒▒██
+██▒▒▒███████████▒▒▒▒▒██▒▒▒▒▒▒▒▒██▒▒▒▒▒██
+█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒████████▒▒▒▒▒▒▒██
+██▒▒▒▒▒▒▒▒▒▒▒▒▒▒█▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
+░█▒▒▒███████████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒██
+░██▒▒▒▒▒▒▒▒▒▒████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒█
+░░████████████░░░█████████████████
+
+- Ben M
+*/
